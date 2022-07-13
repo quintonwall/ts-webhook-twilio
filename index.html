@@ -1,0 +1,27 @@
+<html>
+<head>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">  </script>
+<script>
+      $(document).ready(function(){
+        var user,pass;
+        $("#submit").click(function(){
+          firstname=$("#fname").val();
+          lastname=$("#lname").val();
+          $.post("http://localhost:3000/test",{firstname: firstname,lastname: lastname}, function(data){
+            if(data === 'yes') {
+                alert("hello"+firstname);
+              }
+          });
+        });
+      });
+    </script>
+</head>
+<body>
+<h1>What is your name?</h1>
+
+First name: <input id="fname" size="40" type="text" /></br></br>
+Last name:  <input id="lname" size="40" type="text" /></br></br>
+<input id="submit" type="button" value="Submit" />
+
+</body>
+</html>
